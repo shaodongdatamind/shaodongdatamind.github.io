@@ -15,7 +15,7 @@ Test image here.
 
 ![test1](/assets/images/rlhf/Toxicity_in_AI.png)
 
-![test2](/Toxicity_in_AI.png)
+![test2]("Toxicity_in_AI.png")
 
 ![test3](assets/images/rlhf/Toxicity_in_AI.png)
 
@@ -24,3 +24,5 @@ Test image here.
 ![test5](../assets/images/rlhf/Toxicity_in_AI.png)
 
 ![test6](../Toxicity_in_AI.png)
+
+<p><img src="/Toxicity_in_AI.png" width="672" /></p>
