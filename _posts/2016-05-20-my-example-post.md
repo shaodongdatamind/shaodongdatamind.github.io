@@ -31,5 +31,5 @@ Test HTML here.
 2
 <p><img src="https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png" width="672" /></p>
 3
-<p><img src="https://github.com/wangsd94/shaodong.github.io/Toxicity_in_AI.png" width="672" /></p>
+<p><img src="https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png?raw=true" width="672" /></p>
 
