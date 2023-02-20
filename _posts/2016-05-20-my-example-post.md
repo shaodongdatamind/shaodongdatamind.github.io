@@ -25,4 +25,5 @@ Test image here.
 
 ![test6](../Toxicity_in_AI.png)
 
+Test HTML here.
 <p><img src="/Toxicity_in_AI.png" width="672" /></p>
