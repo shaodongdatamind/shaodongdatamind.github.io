@@ -26,4 +26,10 @@ Test image here.
 ![test6](../Toxicity_in_AI.png)
 
 Test HTML here.
+1
 <p><img src="/Toxicity_in_AI.png" width="672" /></p>
+2
+<p><img src="https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png" width="672" /></p>
+3
+<p><img src="https://github.com/wangsd94/shaodong.github.io/Toxicity_in_AI.png" width="672" /></p>
+
