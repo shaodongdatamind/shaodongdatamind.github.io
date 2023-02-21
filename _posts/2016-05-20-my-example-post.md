@@ -44,3 +44,9 @@ Test HTML here.
 
 5
 <p><img src="{{site.url}}/assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
+
+6
+<p><img src="{{site.url}}/Toxicity_in_AI.png?raw=true" width="672" /></p>
+
+7
+<p><img src="{{ site.url }}{{ site.baseurl }}/Toxicity_in_AI.png?raw=true" width="672" /></p>
