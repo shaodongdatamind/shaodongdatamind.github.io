@@ -15,21 +15,32 @@ Test image here.
 
 ![test1](/assets/images/rlhf/Toxicity_in_AI.png)
 
-![test2]("Toxicity_in_AI.png")
+![test2]("/Toxicity_in_AI.png")
 
-![test3](assets/images/rlhf/Toxicity_in_AI.png)
+![test3](/assets/images/rlhf/Toxicity_in_AI.png)
 
-![test4](Toxicity_in_AI.png)
+![test4](/Toxicity_in_AI.png)
 
 ![test5](../assets/images/rlhf/Toxicity_in_AI.png)
 
 ![test6](../Toxicity_in_AI.png)
 
+![test7](https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png?raw=true)
+
 Test HTML here.
 1
 <p><img src="/Toxicity_in_AI.png" width="672" /></p>
+
 2
-<p><img src="https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png" width="672" /></p>
+
+<p><img src="/assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
+
 3
 <p><img src="https://github.com/wangsd94/shaodong.github.io/blob/master/Toxicity_in_AI.png?raw=true" width="672" /></p>
 
+4
+
+<p><img src="/workspaces/shaodong.github.io/assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
+
+5
+<p><img src="../assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
