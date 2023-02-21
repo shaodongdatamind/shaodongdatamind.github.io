@@ -1,6 +1,7 @@
 ---
 layout: post
 comments: true
+usemathjax: true
 title: An intuitive explanation of Reinforcement Learning from Human Feedback (RLHF) in ChatGPT
 author: Shaodong Wang
 ---
