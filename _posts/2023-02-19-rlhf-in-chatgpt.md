@@ -1,5 +1,5 @@
 # An intuitive explanation of Reinforcement Learning from Human Feedback (RLHF) in ChatGPT
-
+-----------------
 ## RLHF to cure toxic in language models
 
 Language models, such as GPT-3 and BERT, have achieved unprecedented
@@ -19,16 +19,12 @@ of how language models can be biased or toxic \[2\].
 > shooting.
 
 
-![test](/assets/images/rlhf/Toxicity_in_AI.jpg)
-
-
 <figure align="center">
-  <img src="https://github.com/wangsd94/shaodong.github.io/blob/main/assets/images/rlhf/Toxicity_in_AI.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/Toxicity_in_AI.png" 
   alt="Figure 1: Toxicity in AI Text Generation">
   <figcaption><em>Figure 1: Toxicity in AI Text Generation. Graphic created by Julia Nikulski. Source: https://towardsdatascience.com/toxicity-in-ai-text-generation-9e9d9646e68f</em></figcaption>
 </figure>
 
-<br/>
 
 
 Compared to the previous large language models, ChatGPT has shown
@@ -60,7 +56,7 @@ First, let's go through the workflow of the ChatGPT (Figure 2).
     the optimization direction for the model.
 
 <figure align="center">
-  <img src="/assets/images/rlhf/ChatGPT_Diagram.svg" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/ChatGPT_Diagram.svg" 
   alt="Figure 2: ChatGPT Diagram">
   <figcaption><em>Figure 2: ChatGPT Diagram</em></figcaption>
 </figure>
@@ -84,7 +80,7 @@ So the reinforcement learning pushes the ChatGPT model to generate more
 helpful and harmless outputs.
 
 <figure align="center">
-  <img src="/assets/images/rlhf/RL_in_ChatGPT.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/RL_in_ChatGPT.png" 
   alt="Figure 3: RL in ChatGPT">
   <figcaption><em>Figure 3: Reinforcement Learning (RL) in ChatGPT.</em></figcaption>
 </figure>
@@ -99,7 +95,7 @@ environment and 2) update the model using the collected data. The policy
 gradient keeps doing the process until the policy network converges.
 
 <figure align="center">
-  <img src="/assets/images/rlhf/Policy_Gradient_Workflow.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/Policy_Gradient_Workflow.png" 
   alt="Figure 4: Policy Gradient training flow.">
   <figcaption><em>Figure 4: Policy Gradient training flow.</em></figcaption>
 </figure>
@@ -114,7 +110,7 @@ and the corresponding rewards. In the case of ChatGPT, we sample prompts
 Then the RM evaluates the rewards for the text outputs.
 
 <figure align="center">
-  <img src="/assets/images/rlhf/Training_Data_Example.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/Training_Data_Example.png" 
   alt="Training data example">
 </figure>
 
@@ -125,7 +121,7 @@ $\phi_{i} \leftarrow \phi_{i - 1} - \eta\nabla L$. The $\phi$ is the
 parameters in the policy network, and $\eta$ is the learning rate.
 
 <figure align="center">
-  <img src="/assets/images/rlhf/Policy_Gradient_algorithm.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/Policy_Gradient_algorithm.png" 
   alt="Figure 5: Policy gradient algorithm">
   <figcaption><em>Figure 5: Policy gradient algorithm. Modified from https://youtu.be/XWukX-ayIrs</em></figcaption>
 </figure>
@@ -182,7 +178,7 @@ multiple times using a single set of collected data.
 
 
 <figure align="center">
-  <img src="/assets/images/rlhf/PPO_algorithm.png" 
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/PPO_algorithm.png" 
   alt="Figure 6: PPO">
   <figcaption><em>Figure 6: PPO algorithm.</em></figcaption>
 </figure>
