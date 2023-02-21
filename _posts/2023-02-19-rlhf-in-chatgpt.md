@@ -8,6 +8,8 @@ author: Shaodong Wang
 
 ## RLHF to cure toxic in language models
 
+$y=x^2$
+
 $$y=x^2$$
 
 Language models, such as GPT-3 and BERT, have achieved unprecedented
