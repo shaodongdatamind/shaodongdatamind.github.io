@@ -1,5 +1,10 @@
-# An intuitive explanation of Reinforcement Learning from Human Feedback (RLHF) in ChatGPT
------------------
+---
+layout: post
+comments: true
+title: An intuitive explanation of Reinforcement Learning from Human Feedback (RLHF) in ChatGPT
+author: Shaodong Wang
+---
+
 ## RLHF to cure toxic in language models
 
 Language models, such as GPT-3 and BERT, have achieved unprecedented
