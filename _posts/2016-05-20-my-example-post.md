@@ -21,7 +21,7 @@ Test image here.
 
 ![test4](/Toxicity_in_AI.png)
 
-![test5](../assets/images/rlhf/Toxicity_in_AI.png)
+![test5]({{site.url}}/assets/images/rlhf/Toxicity_in_AI.png)
 
 ![test6](../Toxicity_in_AI.png)
 
@@ -43,4 +43,4 @@ Test HTML here.
 <p><img src="/workspaces/shaodong.github.io/assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
 
 5
-<p><img src="../assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
+<p><img src="{{site.url}}/assets/images/rlhf/Toxicity_in_AI.png" width="672" /></p>
