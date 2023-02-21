@@ -7,20 +7,6 @@ author: Shaodong Wang
 
 ## RLHF to cure toxic in language models
 
-
-test math1 $ y=x^2 $
-
-test math2 $$ y=x^2 $$
-
-test math3 
-$$ 
-y=x^2 
-$$
-
-test fangkuohao \[ \phi \]
-
-test yuankuohao \( \phi \)
-
 Language models, such as GPT-3 and BERT, have achieved unprecedented
 success in natural language processing tasks. However, these models are
 not immune to social biases and toxic language, which can have harmful
