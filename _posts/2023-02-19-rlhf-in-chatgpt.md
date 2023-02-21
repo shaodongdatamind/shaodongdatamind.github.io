@@ -1,12 +1,13 @@
 ---
 layout: post
 comments: true
-usemathjax: true
 title: An intuitive explanation of Reinforcement Learning from Human Feedback (RLHF) in ChatGPT
 author: Shaodong Wang
 ---
 
 ## RLHF to cure toxic in language models
+
+test
 
 test math $y=x^2$
 
