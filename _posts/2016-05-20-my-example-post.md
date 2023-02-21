@@ -50,3 +50,6 @@ Test HTML here.
 
 7
 <p><img src="{{ site.url }}{{ site.baseurl }}/Toxicity_in_AI.png?raw=true" width="672" /></p>
+
+8
+<p><img src="{{ site.url }}{{ site.baseurl }}/Toxicity_in_AI.png" width="672" /></p>
