@@ -9,7 +9,7 @@ description: >
   Share summaries and insights of recent Artificial Intelligence advances.
 
 # Build settings
-markdown:kramdown
+# markdown:kramdown
 theme: minima
 
 plugins:
