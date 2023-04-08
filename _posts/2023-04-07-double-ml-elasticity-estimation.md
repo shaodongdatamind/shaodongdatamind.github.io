@@ -28,3 +28,12 @@ Given a good estimation of pricing elasticity, how do we make use of other varia
 
 ## References
 [1] https://towardsdatascience.com/causal-inference-example-elasticity-de4a3e2e621b
+
+https://doi.org/10.1016/j.eswa.2013.07.059 / 
+https://isiarticles.com/bundles/Article/pre/pdf/40549.pdf
+
+https://arxiv.org/pdf/2205.01875.pdf
+
+https://www.actable.ai/use-cases/optimizing-sales-causal-inference-could-be-your-secret-sauce
+
+(good) https://github.com/larsroemheld/causalinf_ex_elasticity/blob/main/elasticity_dml.ipynb 
