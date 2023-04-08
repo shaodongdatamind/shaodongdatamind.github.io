@@ -1,4 +1,4 @@
-title: Recent Advances in AI
+title: Recent Advances in Data Science
 author:
   name: Shaodong Wang
   email: wangsd94@gmail.com
@@ -6,7 +6,7 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Share summaries and insights of recent Artificial Intelligence advances.
+  Share summaries and insights of recent data science advances.
 
 # Build settings
 # markdown:kramdown
