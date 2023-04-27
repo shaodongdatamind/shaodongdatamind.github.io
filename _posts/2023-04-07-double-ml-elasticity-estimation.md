@@ -16,6 +16,18 @@ Demand for many products is seasonal, for example due to holidays (Christmas) an
 As the saying goes, the retailer must be careful not to confuse correlation and causation. The following causal graph represents a simple confounder relationship: failing to control for product quality (and season, and others, not displayed) will significantly bias estimates of θ. Such biases will lead the retailer to wrong conclusions about optimal prices, directly hurting their business.
 
 ## How does double ML work
+We want to estimate causal effect, $$\theta$$ using the following equations:
+
+$$Y = \theta T + G(X) + \epsilon$$
+
+$$T = X\beta + \eta$$
+
+This equation holds after transformation.
+
+$$Y-E[Y|X] = \theta (T - E[T|X]) + \epsilon$$
+That's why double ML can estimate the causal effect by building models on residuals.
+
+
 
 ## Beyond pricing elasticity
 Given a good estimation of pricing elasticity, how do we make use of other variables?
