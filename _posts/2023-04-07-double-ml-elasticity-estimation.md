@@ -15,6 +15,10 @@ MacBooks are more expensive than, say, Chromebooks. Assuming a retailer sells mo
 Demand for many products is seasonal, for example due to holidays (Christmas) and weather changes (summer). Typically, prices are high during high season (and yet a lot of products are sold), and lower during off-season (when fewer products are sold); yet despite this correlation it would be foolish to expect higher sales from raising off-season prices to high season levels.
 As the saying goes, the retailer must be careful not to confuse correlation and causation. The following causal graph represents a simple confounder relationship: failing to control for product quality (and season, and others, not displayed) will significantly bias estimates of θ. Such biases will lead the retailer to wrong conclusions about optimal prices, directly hurting their business.
 
+Another good example:
+
+in many industries, low prices are associated with low sales. For example, in the hotel industry, prices are low outside the tourist season, and prices are high when demand is highest and hotels are full. Given that data, a naive prediction might suggest that increasing the price would lead to more rooms sold.
+
 ## How does double ML work
 We want to estimate causal effect, $$\theta$$ using the following equations:
 
