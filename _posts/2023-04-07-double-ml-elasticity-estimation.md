@@ -10,6 +10,9 @@ author: Shaodong Wang
 ## Why do we need double ML for pricing elasticity estimation
 
 Causal inference answers the questions of 'what if'
+
+https://matheusfacure.github.io/python-causality-handbook/01-Introduction-To-Causality.html
+
 ML is notoriously bad at this inverse causality type of problem. They require us to answer “what if” questions, which economists call counterfactuals. What would happen if I used another price instead of this price I’m currently asking for my merchandise? What would happen if I do a low sugar one instead of this low-fat diet I’m in? If you work in a bank, giving credit, you will have to figure out how changing the customer line changes your revenue. Or, if you work in the local government, you might be asked to figure out how to make the schooling system better. Should you give tablets to every kid because the era of digital knowledge tells you to? Or should you build an old-fashioned library?
 
 The following example is from [1]. 
