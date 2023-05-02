@@ -8,6 +8,10 @@ author: Shaodong Wang
 ## What is pricing elasticity
 
 ## Why do we need double ML for pricing elasticity estimation
+
+Causal inference answers the questions of 'what if'
+ML is notoriously bad at this inverse causality type of problem. They require us to answer “what if” questions, which economists call counterfactuals. What would happen if I used another price instead of this price I’m currently asking for my merchandise? What would happen if I do a low sugar one instead of this low-fat diet I’m in? If you work in a bank, giving credit, you will have to figure out how changing the customer line changes your revenue. Or, if you work in the local government, you might be asked to figure out how to make the schooling system better. Should you give tablets to every kid because the era of digital knowledge tells you to? Or should you build an old-fashioned library?
+
 The following example is from [1]. 
 The ability to learn causally valid elasticity from observational data is therefore key; observational data in this example is simply the retailer’s history of prices and units sold over time. But estimating causal effects from observational data is difficult because of confounding. To see what this means, consider (1) product quality and (2) seasons as two important examples of many potential confounders:
 
