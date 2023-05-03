@@ -37,8 +37,11 @@ This equation holds after transformation.
 
 $$Y-E[Y|X] = \theta (T - E[T|X]) + \epsilon$$
 That's why double ML can estimate the causal effect by building models on residuals.
+To understand this equation, we can do one more transformation: 
 
-
+This formula says that we can predict T from X. After we do that, we’ll be left with a version of T, 
+, which is uncorrelated with all the variables included previously. This will break down arguments such as “people that have more years of education (T) have it because they have higher X. It is not the case that education leads to higher wages. It is just the case that it is correlated with X, which is what drives wages”. Well, if we include X in our model, then 
+ becomes the return of an additional year of education while keeping X fixed. 
 
 ## Beyond pricing elasticity
 Given a good estimation of pricing elasticity, how do we make use of other variables?
