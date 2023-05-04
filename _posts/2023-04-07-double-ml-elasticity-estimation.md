@@ -16,8 +16,18 @@ where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This eq
 
 The basic idea is that a \$1 increase in price will have a larger impact on demand for a product that costs \$5 compared to one that costs $100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually θ is negative).
 
+A good elasticity estimation can be very important to a retailer in many scenarios:
+
+- Pricing Strategy: A retailer with a good understanding of price elasticity can optimize their pricing strategy to maximize revenue. For example, if a product has low elasticity, the retailer can increase the price without worrying too much about a decrease in demand. On the other hand, for a highly elastic product, lowering the price might lead to a significant increase in demand, leading to higher revenue overall.
+
+- Promotional Offers: Retailers can use price elasticity to determine the best promotional offers for their products. For instance, if a product has high elasticity, a small discount might result in a big increase in demand. However, for a product with low elasticity, a larger discount might be necessary to encourage consumers to buy.
+
+- Inventory Management: Retailers can use price elasticity to help manage their inventory. For example, if they know that a product is highly elastic and likely to sell out quickly if the price is lowered, they may decide to keep a smaller inventory and replenish it more frequently.
+
+- Market Analysis: By examining price elasticity across different products and markets, a retailer can gain insights into consumer behavior and preferences. This information can be used to inform pricing, marketing, and product development decisions.
 
 ## Why do we need double ML for pricing elasticity estimation
+
 
 Causal inference answers the questions of 'what if'
 
