@@ -6,7 +6,9 @@ author: Shaodong Wang
 ---
 
 ## What is pricing elasticity
+Pricing elasticity describes the sensitivity of demand to changes in price for a particular product. When demand is more elastic, an increase in price will result in a greater reduction in demand. This concept allows businesses to estimate how many more units of a product they could sell if they were to lower the price by a certain percentage.
 
+In short, economists summarized the elasticity to be a simple equation $$\theta = \frac{\partial q / q}{\partial p / p}$$.
 ## Why do we need double ML for pricing elasticity estimation
 
 Causal inference answers the questions of 'what if'
