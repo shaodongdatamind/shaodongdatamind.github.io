@@ -14,7 +14,7 @@ $$\theta = \frac{\partial q / q}{\partial p / p}$$,
 
 where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$p$$), the percent-change of demanded quantity ($$q$$) is a constant. This constant is the elasticity, $$\theta$$. 
 
-The basic idea is that a \\$1 increase in price will have a larger impact on demand for a product that costs \\$5 compared to one that costs \\$100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually θ is negative).
+The basic idea is that a \\$1 increase in price will have a larger impact on demand for a product that costs \\$5 compared to one that costs \\$100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually $$\theta$$ is negative).
 
 A good elasticity estimation can be very important to a retailer in many scenarios:
 
@@ -27,7 +27,15 @@ A good elasticity estimation can be very important to a retailer in many scenari
 - Market Analysis: By examining price elasticity across different products and markets, a retailer can gain insights into consumer behavior and preferences. This information can be used to inform pricing, marketing, and product development decisions.
 
 ## Why do we need double ML for pricing elasticity estimation
+Although a good elasticity estimation can be very important to a retailer, it is challenging to estimate the pricing elasticity coefficient in the real world. 
 
+We probability want to estimate elasticity from historical selling data. But historical selling data can lead to a biased elasticity if we do not remove the confounding factors, for example, holiday. In many industries, low prices are associated with low sales. For example, in the hotel industry, prices are low outside the tourist season, and prices are high when demand is highest and hotels are full. Given that data, a naive estimation might suggest that increasing the price would lead to more sales.
+
+To remove the confounding effects, the most straightforward way is to set up a randomized experiments. For instance, a retailer could randomly adjust product prices up and down or even randomize prices across different customers. Then with the collected price and demand data, we are easily able to estimate the pricing elasticity. However, this type of experimentation is not good or realistic.
+ - The experiment is expensive as it requires selling products at suboptimal prices and can negatively impact the customer experience. 
+ - Usually, a short experiment might not be generalizable to other seasons or holidays.
+
+*Then we need double ML.*
 
 Causal inference answers the questions of 'what if'
 
