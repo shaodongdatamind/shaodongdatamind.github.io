@@ -8,7 +8,15 @@ author: Shaodong Wang
 ## What is pricing elasticity
 Pricing elasticity describes the sensitivity of demand to changes in price for a particular product. When demand is more elastic, an increase in price will result in a greater reduction in demand. This concept allows businesses to estimate how many more units of a product they could sell if they were to lower the price by a certain percentage.
 
-In short, economists summarized the elasticity to be a simple equation $$\theta = \frac{\partial q / q}{\partial p / p}$$.
+In short, economists summarized the elasticity to be a simple equation: 
+
+$$\theta = \frac{\partial q / q}{\partial p / p}$$, 
+
+where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$p$$), the percent-change of demanded quantity ($$q$$) is a constant. This constant is the elasticity, $$\theta$$. 
+
+The basic idea is that a $1 increase in price will have a larger impact on demand for a product that costs $5 compared to one that costs $100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually θ is negative).
+
+
 ## Why do we need double ML for pricing elasticity estimation
 
 Causal inference answers the questions of 'what if'
