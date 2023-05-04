@@ -14,7 +14,7 @@ $$\theta = \frac{\partial q / q}{\partial p / p}$$,
 
 where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$p$$), the percent-change of demanded quantity ($$q$$) is a constant. This constant is the elasticity, $$\theta$$. 
 
-The basic idea is that a $1 increase in price will have a larger impact on demand for a product that costs $5 compared to one that costs $100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually θ is negative).
+The basic idea is that a \$1 increase in price will have a larger impact on demand for a product that costs \$5 compared to one that costs $100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually θ is negative).
 
 
 ## Why do we need double ML for pricing elasticity estimation
