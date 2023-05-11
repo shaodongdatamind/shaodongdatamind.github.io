@@ -10,13 +10,13 @@ Pricing elasticity describes the sensitivity of demand to changes in price for a
 
 In short, economists summarized the elasticity to be a simple equation: 
 
-$$\theta = \frac{\partial q / q}{\partial p / p}$$, 
+$$\theta = \frac{\partial Q / Q}{\partial P / P}$$, 
 
 or equivalently,
 
-$$log q \sim \theta log p$$
+$$log Q \sim \theta log P$$
 
-where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$p$$), the percent-change of demanded quantity ($$q$$) is a constant. This constant is the elasticity, $$\theta$$. 
+where $$P$$ is price, $$Q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$P$$), the percent-change of demanded quantity ($$Q$$) is a constant. This constant is the elasticity, $$\theta$$. 
 
 The basic idea is that a \\$1 increase in price will have a larger impact on demand for a product that costs \\$5 compared to one that costs \\$100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually $$\theta$$ is negative).
 
@@ -46,19 +46,21 @@ Given the non-randomized observations, how do we remove the confounding effects 
 Pricing elasticity estimation is not just fitting a machine learning model using the available data. As we said in the last section, a naive estimation may give ridiculous suggestions due to the biased data. 
 
 Double machine learning is a method that combines machine learning algorithms to estimate treatment effects in causal inference. It aims to answer the questions of 'what if'. For example, what sales would be if I set the discount to 30%? 
+
 Generally, DML include two steps. 1) In the first step, we train two separate models to predict the treatment (price) and outcome (sales) using confounding variables, respectively. 2) In the second step, we estimate the pricing elasticity on the residuals of price and sales from the trained models in the first step. 
 
+Specifically, we want to estimate causal effect, $$\theta$$ using the following equations:
 
+$$Y = \theta T + G(W) + \epsilon$$
 
-We want to estimate causal effect, $$\theta$$ using the following equations:
-
-$$Y = \theta T + G(X) + \epsilon$$
-
-$$T = X\beta + \eta$$
+where $$W$$ is the confounding variables that can impact both $$Y$$ and $$T$$.
 
 This equation holds after transformation.
 
-$$Y-E[Y|X] = \theta (T - E[T|X]) + \epsilon$$
+$$Y-E[Y|W] = \theta (T - E[T|W]) + \epsilon$$
+
+It tells us that the treatment effect can be derived from regression on residuals ([Frisch-Waugh-Lovell theorem](https://en.wikipedia.org/wiki/Frisch%E2%80%93Waugh%E2%80%93Lovell_theorem))! 
+
 That's why double ML can estimate the causal effect by building models on residuals.
 To understand this equation, we can do one more transformation: 
 
