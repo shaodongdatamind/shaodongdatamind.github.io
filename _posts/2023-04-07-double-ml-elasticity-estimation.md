@@ -10,7 +10,7 @@ Pricing elasticity describes the sensitivity of demand to changes in price for a
 
 In short, economists summarized the elasticity to be a simple equation: 
 
-$$\theta = \frac{\partial Q / Q}{\partial P / P}$$, 
+$$\theta = \frac{\partial Q / Q}{\partial P / P}$$
 
 or equivalently,
 
