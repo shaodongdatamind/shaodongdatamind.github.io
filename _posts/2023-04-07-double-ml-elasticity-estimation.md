@@ -47,7 +47,7 @@ Pricing elasticity estimation is not just fitting a machine learning model using
 
 Double machine learning is a method that combines machine learning algorithms to estimate treatment effects in causal inference. It aims to answer the questions of 'what if'. For example, what sales would be if I set the discount to 30%? 
 
-Generally, DML include two steps. 1) In the first step, we train two separate models to predict the treatment (price) and outcome (sales) using confounding variables, respectively. 2) In the second step, we estimate the pricing elasticity on the residuals of price and sales from the trained models in the first step. 
+Generally, DML include two phases. 1) In the first phase, we train two separate models to predict the treatment (price) and outcome (sales) using confounding variables, respectively. 2) In the second phase, we estimate the pricing elasticity on the residuals of price and sales from the trained models. 
 
 Specifically, we want to estimate causal effect, $$\theta$$ using the following equations:
 
@@ -59,9 +59,9 @@ This equation holds after transformation.
 
 $$Y-E[Y|W] = \theta (T - E[T|W]) + \epsilon$$
 
-It tells us that the treatment effect can be derived from regression on residuals ([Frisch-Waugh-Lovell theorem](https://en.wikipedia.org/wiki/Frisch%E2%80%93Waugh%E2%80%93Lovell_theorem))! 
+It tells us that, if we can build two models to estimate $$E[Y|W]$$ and $$E[T|W]$$, then we are able to derive the treatment effect from regression on residuals. Actually this is [Frisch-Waugh-Lovell (FWL) theorem](https://en.wikipedia.org/wiki/Frisch%E2%80%93Waugh%E2%80%93Lovell_theorem))! 
 
-Based on this finding, DML estimates treatment effect through the [following procedure](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html):
+Based on FWL theorem, DML estimates treatment effect through the [following procedures](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html):
 1. Estimate the outcome $$Y$$ with confounding variables $$W$$ using a flexible ML regression model $$M_y$$.
 {:start="2"}
 2. Estimate the treatment $$T$$ with features confounding variables $$W$$ using a flexible ML regression model $$M_t$$.
@@ -70,15 +70,10 @@ Based on this finding, DML estimates treatment effect through the [following pro
 {:start="4"}
 4. Regress the residuals of the outcome on the residuals of the treatment $$\tilde{Y}=\theta \tilde{T}+\epsilon$$
 
+In the case of pricing elasticity, we simply replace $$Y$$ with $$log Q$$ and replace $$T$$ with $$log P$$. To give some intuition, after we predict Price ($$log P$$) from confounding variables ($$W$$, e.g. is_holiday), we will get a residual, $$\tilde{log P}$$, which is uncorrelated with all confounding variables.
 
 
-
-
-That's why double ML can estimate the causal effect by building models on residuals.
-To understand this equation, we can do one more transformation: 
-
-This formula says that we can predict T from X. After we do that, we’ll be left with a version of T, 
-, which is uncorrelated with all the variables included previously. This will break down arguments such as “people that have more years of education (T) have it because they have higher X. It is not the case that education leads to higher wages. It is just the case that it is correlated with X, which is what drives wages”. Well, if we include X in our model, then 
+This will break down arguments such as “people that have more years of education (T) have it because they have higher X. It is not the case that education leads to higher wages. It is just the case that it is correlated with X, which is what drives wages”. Well, if we include X in our model, then 
  becomes the return of an additional year of education while keeping X fixed. 
 
 ## Elasticity for a group of products
