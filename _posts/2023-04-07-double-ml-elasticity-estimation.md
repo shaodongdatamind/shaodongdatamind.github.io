@@ -12,6 +12,10 @@ In short, economists summarized the elasticity to be a simple equation:
 
 $$\theta = \frac{\partial q / q}{\partial p / p}$$, 
 
+or equivalently,
+
+$$log q \sim \theta log p$$
+
 where $$p$$ is price, $$q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$p$$), the percent-change of demanded quantity ($$q$$) is a constant. This constant is the elasticity, $$\theta$$. 
 
 The basic idea is that a \\$1 increase in price will have a larger impact on demand for a product that costs \\$5 compared to one that costs \\$100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually $$\theta$$ is negative).
@@ -38,24 +42,11 @@ To remove the confounding effects, the most straightforward way is to set up a r
 Given the non-randomized observations, how do we remove the confounding effects and estimate the true effect of price on sales? The answer is Double Machine Learning (DML). 
 
 
-
-
-
-
-
-
-https://matheusfacure.github.io/python-causality-handbook/01-Introduction-To-Causality.html
-
-ML is notoriously bad at this inverse causality type of problem. They require us to answer “what if” questions, which economists call counterfactuals. What would happen if I used another price instead of this price I’m currently asking for my merchandise? What would happen if I do a low sugar one instead of this low-fat diet I’m in? If you work in a bank, giving credit, you will have to figure out how changing the customer line changes your revenue. Or, if you work in the local government, you might be asked to figure out how to make the schooling system better. Should you give tablets to every kid because the era of digital knowledge tells you to? Or should you build an old-fashioned library?
-
-The following example is from [1]. 
-
-
-
 ## How does double ML work
 Pricing elasticity estimation is not just fitting a machine learning model using the available data. As we said in the last section, a naive estimation may give ridiculous suggestions due to the biased data. 
 
-Double machine learning is a method that combines machine learning algorithms to estimate treatment effects in causal inference. It aims to answer the questions of 'what if'. For example, what sales would be if I set the discount to 30%?
+Double machine learning is a method that combines machine learning algorithms to estimate treatment effects in causal inference. It aims to answer the questions of 'what if'. For example, what sales would be if I set the discount to 30%? 
+Generally, DML include two steps. 1) In the first step, we train two separate models to predict the treatment (price) and outcome (sales) using confounding variables, respectively. 2) In the second step, we estimate the pricing elasticity on the residuals of price and sales from the trained models in the first step. 
 
 
 
