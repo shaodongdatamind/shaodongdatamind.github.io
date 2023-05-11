@@ -27,7 +27,7 @@ A good elasticity estimation can be very important to a retailer in many scenari
 - Market Analysis: By examining price elasticity across different products and markets, a retailer can gain insights into consumer behavior and preferences. This information can be used to inform pricing, marketing, and product development decisions.
 
 ## Why do we need double ML for pricing elasticity estimation
-Although a good elasticity estimation can be very important to a retailer, it is challenging to estimate the pricing elasticity coefficient in the real world. 
+Although a good elasticity estimation can be very important to a retailer, it is challenging to estimate the pricing elasticity coefficient in the real world.  
 
 We probability want to estimate elasticity from historical selling data. But historical selling data can lead to a biased elasticity if we do not remove the confounding factors, for example, holiday. In many industries, low prices are associated with low sales. For example, in the hotel industry, prices are low outside the tourist season, and prices are high when demand is highest and hotels are full. Given that data, a naive estimation might suggest that increasing the price would lead to more sales.
 
@@ -35,26 +35,30 @@ To remove the confounding effects, the most straightforward way is to set up a r
  - The experiment is expensive as it requires selling products at suboptimal prices and can negatively impact the customer experience. 
  - Usually, a short experiment might not be generalizable to other seasons or holidays.
 
-*Then we need double ML.*
+Given the non-randomized observations, how do we remove the confounding effects and estimate the true effect of price on sales? The answer is Double Machine Learning (DML). 
 
-Causal inference answers the questions of 'what if'
+
+
+
+
+
+
 
 https://matheusfacure.github.io/python-causality-handbook/01-Introduction-To-Causality.html
 
 ML is notoriously bad at this inverse causality type of problem. They require us to answer “what if” questions, which economists call counterfactuals. What would happen if I used another price instead of this price I’m currently asking for my merchandise? What would happen if I do a low sugar one instead of this low-fat diet I’m in? If you work in a bank, giving credit, you will have to figure out how changing the customer line changes your revenue. Or, if you work in the local government, you might be asked to figure out how to make the schooling system better. Should you give tablets to every kid because the era of digital knowledge tells you to? Or should you build an old-fashioned library?
 
 The following example is from [1]. 
-The ability to learn causally valid elasticity from observational data is therefore key; observational data in this example is simply the retailer’s history of prices and units sold over time. But estimating causal effects from observational data is difficult because of confounding. To see what this means, consider (1) product quality and (2) seasons as two important examples of many potential confounders:
 
-MacBooks are more expensive than, say, Chromebooks. Assuming a retailer sells more MacBooks than Chromebooks (and nothing else), the observational data indicates that high prices correlate with high sales. But it would be foolish to (counterfactually) expect that raising a Chromebook’s price to Apple- levels would allow selling more Chromebooks.
-Demand for many products is seasonal, for example due to holidays (Christmas) and weather changes (summer). Typically, prices are high during high season (and yet a lot of products are sold), and lower during off-season (when fewer products are sold); yet despite this correlation it would be foolish to expect higher sales from raising off-season prices to high season levels.
-As the saying goes, the retailer must be careful not to confuse correlation and causation. The following causal graph represents a simple confounder relationship: failing to control for product quality (and season, and others, not displayed) will significantly bias estimates of θ. Such biases will lead the retailer to wrong conclusions about optimal prices, directly hurting their business.
 
-Another good example:
-
-in many industries, low prices are associated with low sales. For example, in the hotel industry, prices are low outside the tourist season, and prices are high when demand is highest and hotels are full. Given that data, a naive prediction might suggest that increasing the price would lead to more rooms sold.
 
 ## How does double ML work
+Pricing elasticity estimation is not just fitting a machine learning model using the available data. As we said in the last section, a naive estimation may give ridiculous suggestions due to the biased data. 
+
+Double machine learning is a method that combines machine learning algorithms to estimate treatment effects in causal inference. It aims to answer the questions of 'what if'. For example, what sales would be if I set the discount to 30%?
+
+
+
 We want to estimate causal effect, $$\theta$$ using the following equations:
 
 $$Y = \theta T + G(X) + \epsilon$$
