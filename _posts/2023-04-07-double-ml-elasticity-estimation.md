@@ -63,8 +63,11 @@ It tells us that the treatment effect can be derived from regression on residual
 
 Based on this finding, DML estimates treatment effect through the [following procedure](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html):
     1. Estimate the outcome $$Y$$ with confounding variables $$W$$ using a flexible ML regression model $$M_y$$.
+    
     2. Estimate the treatment $$T$$ with features confounding variables $$W$$ using a flexible ML regression model $$M_t$$.
+    
     3. Obtain the residuals $$\tilde{Y}=Y-M_y(W)$$ and $$\tilde{T}=T-M_t(W)$$.
+    
     4. Regress the residuals of the outcome on the residuals of the treatment $$\tilde{Y}=\theta \tilde{T}+\epsilon$$
 
 
