@@ -63,14 +63,14 @@ It tells us that, if we can build two models to estimate $$E[Y|W]$$ and $$E[T|W]
 
 Based on FWL theorem, DML estimates treatment effect through the [following procedures](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html):
 
-{:start="1"}
 1. Estimate the outcome $$Y$$ with confounding variables $$W$$ using a flexible ML regression model $$M_y$$.
-{:start="2"}
+{:start="1"}
 2. Estimate the treatment $$T$$ with features confounding variables $$W$$ using a flexible ML regression model $$M_t$$.
-{:start="3"}
+{:start="2"}
 3. Obtain the residuals $$\tilde{Y}=Y-M_y(W)$$ and $$\tilde{T}=T-M_t(W)$$.
-{:start="4"}
+{:start="3"}
 4. Regress the residuals of the outcome on the residuals of the treatment $$\tilde{Y}=\theta \tilde{T}+\epsilon$$
+{:start="4"}
 
 In the case of pricing elasticity, we simply replace $$Y$$ with $$log Q$$ and replace $$T$$ with $$log P$$. To give some intuition, after we predict Price ($$log P$$) from confounding variables ($$W$$, e.g. is_holiday), we will get a residual, $$\tilde{log P}$$, which is uncorrelated with all confounding variables.
 
