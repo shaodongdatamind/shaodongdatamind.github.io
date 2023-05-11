@@ -57,7 +57,7 @@ where $$W$$ is the confounding variables that can impact both $$Y$$ and $$T$$.
 
 This equation holds after transformation:
 
-$$Y-E[Y|W] = \theta (T - E[T|W]) + \epsilon$$
+$$Y-E[Y\vert W] = \theta (T - E[T\vert W]) + \epsilon$$
 
 It tells us that, if we can build two models to estimate $$E[Y\vert W]$$ and $$E[T\vert W]$$, then we are able to derive the treatment effect from regression on residuals. Actually this is [Frisch-Waugh-Lovell (FWL) theorem](https://en.wikipedia.org/wiki/Frisch%E2%80%93Waugh%E2%80%93Lovell_theorem)! 
 
