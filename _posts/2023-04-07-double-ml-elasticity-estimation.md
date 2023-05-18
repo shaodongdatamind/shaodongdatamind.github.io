@@ -79,9 +79,15 @@ In this way, we obtain a pricing elasticity $$\theta$$ with confounding variable
 ## Elasticity estimation in real world
 In real world, we usually face even worse situation than the confounding effects, which is insufficient data. Usually we take common strategies, such as regularization, ensemble learning, and cross-validation. There are more things we can do for elasticity estimation actually. 
 
+Suppose we are going to estimate the elasticity for a new product with only 1 week selling history. It is impossible to obtain a reliable elasticity with such limited data. But we have some similar product with long selling history. Using the data of similar products can partially solve the data insufficiency.
+
+- The first strategy is to estimate the elasticities of those similar products, and take the average or weighted average. The weights can be defined as the similarities between the new product and old products.
+- If there are some product-level factors can impact the elasticity of product (e.g. product color), we can induce them into model by setting $$\theta = \theta(X) = X \dot \beta$$. $$X$$ is the factors that impact the elasticity, and $$\beta$$ is the corresponding coefficients. See this [article](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html) [1] for the details.
+
+{% comment %}
 ## Beyond pricing elasticity
 Given a good estimation of pricing elasticity, how do we make use of other variables?
-
+{% endcomment %}
 
 
 
@@ -89,13 +95,14 @@ Given a good estimation of pricing elasticity, how do we make use of other varia
 
 
 ## References
-[1] https://towardsdatascience.com/causal-inference-example-elasticity-de4a3e2e621b
+[1] https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html
 
-https://doi.org/10.1016/j.eswa.2013.07.059 / 
-https://isiarticles.com/bundles/Article/pre/pdf/40549.pdf
+[2] https://towardsdatascience.com/causal-inference-example-elasticity-de4a3e2e621b
 
-https://arxiv.org/pdf/2205.01875.pdf
+[3] https://doi.org/10.1016/j.eswa.2013.07.059
 
-https://www.actable.ai/use-cases/optimizing-sales-causal-inference-could-be-your-secret-sauce
+[4] https://arxiv.org/pdf/2205.01875.pdf
 
-https://github.com/larsroemheld/causalinf_ex_elasticity/blob/main/elasticity_dml.ipynb 
+[5] https://www.actable.ai/use-cases/optimizing-sales-causal-inference-could-be-your-secret-sauce
+
+[6] https://github.com/larsroemheld/causalinf_ex_elasticity/blob/main/elasticity_dml.ipynb 
