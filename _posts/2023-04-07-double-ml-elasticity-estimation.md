@@ -72,13 +72,12 @@ Based on FWL theorem, DML estimates treatment effect through the [following proc
 4. Regress the residuals of the outcome on the residuals of the treatment $$\tilde{Y}=\theta \tilde{T}+\epsilon$$
 {:start="4"}
 
-In the case of pricing elasticity, we simply replace $$Y$$ with $$log Q$$ and replace $$T$$ with $$log P$$. To give some intuition, after we predict Price ($$log P$$) from confounding variables ($$W$$, e.g. is_holiday), we will get a residual, $$\tilde{log P}$$, which is uncorrelated with all confounding variables.
+In the case of pricing elasticity, we simply replace $$Y$$ with $$log Q$$ and replace $$T$$ with $$log P$$. To give some intuition, after we predict Price ($$log P$$) from confounding variables ($$W$$, e.g. is_holiday), we will get a residual, $$\tilde{log P}$$, which is uncorrelated with all confounding variables. 
 
+In this way, we obtain a pricing elasticity $$\theta$$ with confounding variables controlled. In the example of hotels, we are able to get the true elasticity with is_tourist_season controlled. The impact of tourist season has been removed in Step 1 and Step 2. 
 
-This will break down arguments such as “people that have more years of education (T) have it because they have higher X. It is not the case that education leads to higher wages. It is just the case that it is correlated with X, which is what drives wages”. Well, if we include X in our model, then 
- becomes the return of an additional year of education while keeping X fixed. 
-
-## Elasticity for a group of products
+## Elasticity estimation in real world
+In real world, we usually face even worse situation than the confounding effects, which is insufficient data. Usually we take common strategies, such as regularization, ensemble learning, and cross-validation. There are more things we can do for elasticity estimation actually. 
 
 ## Beyond pricing elasticity
 Given a good estimation of pricing elasticity, how do we make use of other variables?
@@ -99,4 +98,4 @@ https://arxiv.org/pdf/2205.01875.pdf
 
 https://www.actable.ai/use-cases/optimizing-sales-causal-inference-could-be-your-secret-sauce
 
-(good) https://github.com/larsroemheld/causalinf_ex_elasticity/blob/main/elasticity_dml.ipynb 
+https://github.com/larsroemheld/causalinf_ex_elasticity/blob/main/elasticity_dml.ipynb 
