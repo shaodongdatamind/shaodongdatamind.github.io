@@ -82,7 +82,7 @@ In real world, we usually face even worse situation than the confounding effects
 Suppose we are going to estimate the elasticity for a new product with only 1 week selling history. It is impossible to obtain a reliable elasticity with such limited data. But we have some similar product with long selling history. Using the data of similar products can partially solve the data insufficiency.
 
 - The first strategy is to estimate the elasticities of those similar products, and take the average or weighted average. The weights can be defined as the similarities between the new product and old products.
-- If there are some product-level factors can impact the elasticity of product (e.g. product color), we can induce them into model by setting $$\theta = \theta(X) = X \dot \beta$$. $$X$$ is the factors that impact the elasticity, and $$\beta$$ is the corresponding coefficients. See this [article](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html) [1] for the details.
+- If there are some product-level factors can impact the elasticity of product, $$X$$, such as product color, we can fit all product together in a single model. We just need to induce them into model by setting $$\theta = \theta(X) = X \dot \beta$$, where $$X$$ is the factors that impact the elasticity, and $$\beta$$ is the corresponding coefficients. See this [article](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html) [1] for the details.
 
 {% comment %}
 ## Beyond pricing elasticity
