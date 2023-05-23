@@ -18,6 +18,12 @@ $$log Q \sim \theta log P$$
 
 where $$P$$ is price, $$Q$$ is demand, and $$\theta$$ is the elasticity. This equations tells us that given a percent-change of price ($$P$$), the percent-change of demanded quantity ($$Q$$) is a constant. This constant is the elasticity, $$\theta$$. 
 
+<figure align="center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/double_ml_elasticity/Elasticity_curve.png" 
+  alt="Figure 1: Elasticity curve">
+  <figcaption><em>Figure 1: Elasticity curve</em></figcaption>
+</figure>
+
 The basic idea is that a \\$1 increase in price will have a larger impact on demand for a product that costs \\$5 compared to one that costs \\$100. Consumers tend to care about relative changes rather than absolute changes. This definition is convenient because it allows the parameter $$\theta$$ to remain constant as the price changes. With a reliable estimate of $$\theta$$, a retailer can make counterfactual predictions about their prices, such as "if I were to increase the price of my product by 5%, I could sell 5θ% more units" (usually $$\theta$$ is negative).
 
 A good elasticity estimation can be very important to a retailer in many scenarios:
