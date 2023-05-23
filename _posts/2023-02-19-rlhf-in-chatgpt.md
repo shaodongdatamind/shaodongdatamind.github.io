@@ -61,9 +61,9 @@ First, let's go through the workflow of the ChatGPT (Figure 2).
     the optimization direction for the model.
 
 <figure align="center">
-  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/rlhf/ChatGPT_Diagram.svg" 
-  alt="Figure 2: ChatGPT Diagram">
-  <figcaption><em>Figure 2: ChatGPT Diagram</em></figcaption>
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/double_ml_elasticity/Elasticity_curve.png" 
+  alt="Figure 1: Elasticity curve">
+  <figcaption><em>Figure 1: Elasticity curve</em></figcaption>
 </figure>
 
 The most interesting part is reinforcement learning (Step 3). How do
