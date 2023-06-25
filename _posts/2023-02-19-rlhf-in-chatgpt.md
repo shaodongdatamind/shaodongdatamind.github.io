@@ -188,7 +188,7 @@ multiple times using a single set of collected data.
   <figcaption><em>Figure 6: PPO algorithm.</em></figcaption>
 </figure>
 
-## Helpful resources:
+## References:
 
 \[1\] Percy Liang, Tatsunori Hashimoto, Christopher Ré, Rishi Bommasani,
 and Sang Michael Xie, "CS324 - Large Language Models," 2022.
