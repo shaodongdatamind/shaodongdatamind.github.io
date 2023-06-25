@@ -44,7 +44,7 @@ We probably want to estimate elasticity from historical selling data. But histor
 <figure align="center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/double_ml_elasticity/Luxury-Hotel-Groups.png" 
   alt="Figure 1: Elasticity curve">
-  <figcaption><em>Source: https://www.insidehook.com/article/travel/everything-you-need-know-worlds-best-luxury-hotel-groups </figcaption>
+  <figcaption><em>Source: https://www.insidehook.com/article/travel/everything-you-need-know-worlds-best-luxury-hotel-groups </em></figcaption>
 </figure>
 
 To remove the confounding effects, the most straightforward way is to set up a randomized experiment. For instance, a retailer could randomly adjust product prices up and down or even randomize prices across different customers. Then with the collected price and demand data, we are easily able to estimate the pricing elasticity. However, this type of experimentation is not good or realistic.
