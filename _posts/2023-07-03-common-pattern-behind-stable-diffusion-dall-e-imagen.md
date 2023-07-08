@@ -41,6 +41,9 @@ Google's image generation model, Imagen, utilizes a similar process. It begins w
 
 ## References
 https://arxiv.org/abs/2112.10752
+
 https://arxiv.org/abs/2204.06125
+
 https://arxiv.org/abs/2102.12092
+
 https://arxiv.org/abs/2205.11487
