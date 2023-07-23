@@ -31,7 +31,7 @@ This is where an AI agent like LangChain comes in. LangChain can load various to
 Let’s break down the interaction process between the AI agent, GPT, and an external tool like Wikipedia.
 
 ### Step 1: User Query
-The process begins with a user query. For example, a user might ask, “Who won the NBA championship this year?”
+The process begins with a user query. For example, a user might ask, *“Who won the NBA championship this year?”*
 
 ### Step 2: GPT Processing and Decision to Use External Tool
 The AI agent sends this query to GPT. GPT processes the query and generates a response. However, if the information isn’t within GPT’s training data, it may not be able to provide an accurate answer. In such cases, GPT might suggest an action, such as looking up the information on Wikipedia.
