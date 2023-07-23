@@ -99,6 +99,7 @@ agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbos
 agent.run(prompt)
 ```
 
+Output:
 ```
 > Entering new AgentExecutor chain...
  I need to find out who won the NBA championship in 2023
