@@ -76,7 +76,7 @@ Here are the examples of API calls in the Toolformer paper:
 {:start="2"}
 
 <div style="text-align: center">
-  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/toolformer/Toolformer2.png" >
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/toolformer/Toolformer2.png" width="100">
   <figcaption><em>Source: Toolformer https://arxiv.org/pdf/2302.04761.pdf </em></figcaption>
 </div>
 
