@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: ToolFormer\: Finetune LLM for API calls
+title: ToolFormer, Finetune LLM for API calls
 author: Shaodong Wang
 ---
 
