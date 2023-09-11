@@ -14,9 +14,9 @@ Performing a calculation like 12345 * 67890 may be challenging for them.
 However, by leveraging an external calculator through API calling, the LLM can easily obtain accurate results.
 
 Despite these advancements, integrating APIs presents its own set of challenges. One of the primary questions is how to enable the LLM to recognize 
-- 1) when to initiate an API call, 
-- 2) which specific API to call, and 
-- 3) what parameters to pass into it.
+- when to initiate an API call, 
+- which specific API to call, and 
+- what parameters to pass into it.
 
 A straightforward solution to this problem is using few-shot prompting techniques, as demonstrated in the ReAct framework (https://arxiv.org/pdf/2210.03629.pdf). 
 Within this framework, the LLM is asked to generate both 'Thoughts' and 'Acts', 
