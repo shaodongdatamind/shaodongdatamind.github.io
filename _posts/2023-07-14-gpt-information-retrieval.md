@@ -15,7 +15,7 @@ But what if there was a way for ChatGPT to access up-to-date information and pro
 This is where the interaction between AI agents, like LangChain, and external tools, such as Wikipedia, comes into play. 
 In this blog, we’ll delve deeper into how LangChain uses these tools to retrieve external information and how it interacts with GPT.
 
-<figure align="center">
+<figure style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/gpt_information_retrieval/intro.png" 
   alt="intro">
   <figcaption><em> </em></figcaption>
@@ -49,7 +49,7 @@ The Wikipedia tool uses a vector database to process the request. A vector datab
 
 For example, the Wikipedia tool might convert the query “NBA championship” into a vector using a process called vectorization. This vector is then compared to the vectors of all the articles in the Wikipedia database. The comparison is done using cosine similarity. The article/paragraph with the highest cosine similarity to the query vector is considered the most relevant and is returned as the result.
 
-<figure align="center">
+<figure style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/gpt_information_retrieval/vector_database.png" >
   <figcaption><em>Image from Pinecone, a vector database for vector search. https://www.pinecone.io/learn/vector-database/ </em></figcaption>
 </figure>
