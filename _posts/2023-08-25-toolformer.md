@@ -23,14 +23,14 @@ Within this framework, the LLM is asked to generate both 'Thoughts' and 'Acts',
 where the ‘Acts’ specifies the API to be called along with its requisite input parameters. 
 The following example is from the ReAct paper. According to Act 1, the Search is the API to be called with the parameter ‘Apple Remote’. 
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/toolformer/ReAct1.png" >
-</figure>
+</div>
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/toolformer/ReAct2.png" >
   <figcaption><em>Source: ReAct https://arxiv.org/pdf/2210.03629.pdf </em></figcaption>
-</figure>
+</div>
 
 ## Toolformer: a solution of fine-tuning
 
@@ -75,10 +75,10 @@ The training process for Toolformer is organized into the following steps:
 Here are the examples of API calls in the Toolformer paper:
 {:start="2"}
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/toolformer/Toolformer2.png" >
   <figcaption><em>Source: Toolformer https://arxiv.org/pdf/2302.04761.pdf </em></figcaption>
-</figure>
+</div>
 
 3. Filtering API Calls. This step is to check whether the obtained responses are helpful for predicting future tokens, which is used as a filtering criterion. An API call is considered useful if it reduces the loss by at least a threshold.
 {:start="3"}
