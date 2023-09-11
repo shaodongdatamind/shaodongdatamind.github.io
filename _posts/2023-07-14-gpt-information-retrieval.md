@@ -15,11 +15,11 @@ But what if there was a way for ChatGPT to access up-to-date information and pro
 This is where the interaction between AI agents, like LangChain, and external tools, such as Wikipedia, comes into play. 
 In this blog, we’ll delve deeper into how LangChain uses these tools to retrieve external information and how it interacts with GPT.
 
-<figure style="text-align: center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/gpt_information_retrieval/intro.png" 
   alt="intro">
   <figcaption><em> </em></figcaption>
-</figure>
+</div>
 
 
 ## The Basics: GPT and LangChain
