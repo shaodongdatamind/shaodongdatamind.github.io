@@ -49,10 +49,10 @@ The Wikipedia tool uses a vector database to process the request. A vector datab
 
 For example, the Wikipedia tool might convert the query “NBA championship” into a vector using a process called vectorization. This vector is then compared to the vectors of all the articles in the Wikipedia database. The comparison is done using cosine similarity. The article/paragraph with the highest cosine similarity to the query vector is considered the most relevant and is returned as the result.
 
-<figure style="text-align: center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/gpt_information_retrieval/vector_database.png" >
   <figcaption><em>Image from Pinecone, a vector database for vector search. https://www.pinecone.io/learn/vector-database/ </em></figcaption>
-</figure>
+</div>
 
 ### Step 4: Processing the Retrieved Information
 The AI agent receives the information from Wikipedia. It then processes this information and prepares it to be sent to GPT. This might involve formatting the information or extracting the relevant parts.
