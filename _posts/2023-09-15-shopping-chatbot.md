@@ -10,7 +10,7 @@ In today's fast-paced world, personalized shopping experiences are not just a lu
 A shopping chatbot equipped with state-of-the-art machine learning models can not only save time but also fulfill the customer’s unique needs and preferences. 
 One promising way is to leverage the valuable product reviews. 
 In this post, we'll explore how to build a shopping chatbot that uses customer reviews as its knowledge base, facilitated by the Retrieval Augmented Generation (RAG) model. 
-For more details about RAG, please see [this post](https://shaodongdatamind.github.io/2023/07/14/gpt-information-retrieval.html).
+To see how RAG works, please check [this post](https://shaodongdatamind.github.io/2023/07/14/gpt-information-retrieval.html).
 
 ## Data Preparation
 To demonstrate the chatbot, we'll use a sample dataset containing product information and customer reviews.
