@@ -18,9 +18,11 @@ N-Beats is a groundbreaking model in the field of time series forecasting. It st
 </div>
  
 The architecture of N-Beats has several layers. The model is made up of several stacks (orange boxes). Each stack consists of several blocks (blue boxes). Each block (blue box) makes a partial prediction, and these are combined to form a stack (orange box). The model combines several stacks to make the final forecast for the future values.
+
 Each block (blue boxes), the basic unit of the model, has four fully connected layers. It does two main things, 
-•	It creates a 'forecast,' which is our prediction of future values. The ‘forecast’ output will be combined to form the final predictions. 
-•	It generates a 'backcast,' a kind of reverse prediction that we compare with the input data to see how well the model is doing. The ‘backcast’ output will be the input of the next block.
+-	It creates a 'forecast,' which is our prediction of future values. The ‘forecast’ output will be combined to form the final predictions. 
+-	It generates a 'backcast,' a kind of reverse prediction that we compare with the input data to see how well the model is doing. The ‘backcast’ output will be the input of the next block.
+
 Another important thing about N-Beats is its basis expansion, which makes it interpretable. The basis expansion, denoted as g in the diagram, is a learnable function. It transforms the input data into some specific basis and the neural networks inside the blocks capture the expansion coefficients. The N-Beats becomes interpretable if we use a polynomial basis to represent the trend and use Fourier basis to represent the seasonality. 
 
 ## N-HiTS, Neural Hierarchical Interpolation for Time Series Forecasting (2022)
@@ -51,7 +53,9 @@ Unlike N-BEATS and N-HiTS, which are MLP based models, the PatchTST is a transfo
 </div>
 
 Transformers need a sequence of tokens as input. To fulfill this requirement, PatchTST utilizes the concept of 'patching' in time series data. This approach involves dividing the input data (time series) into smaller segments or 'patches', allowing the model to focus on local patterns within each segment. These patches are then processed through a transformer network, which is adept at capturing complex relationships in data. The transformer network in PatchTST is designed to handle these patches efficiently, enabling it to analyze longer sequences of data without a significant increase in computational complexity. 
+
 Note that a multivariate time series is considered as a multi-channel signal. Each channel is processed independently through patching and transformers. After that, the channels are concatenated.
+
 Like transformer models in NLP, PatchTST can be trained through both supervised learning and self-supervised learning as well. In the supervised learning, the target output is the forecast period. To do the self-supervised learning, PatchTST masks several randomly selected patches and set to zero, and the model targets to reconstruct the masked patches. 
 
 ## TimeGPT (2023)
