@@ -64,7 +64,7 @@ Drawing inspiration from the success of large language models in natural languag
 <div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/ts_forecast_models/TimeGPT.png" 
   alt="timegpt">
-  <figcaption><em> Figure 1: TimeGPT workflow. </em></figcaption>
+  <figcaption><em> Figure 4: TimeGPT workflow. </em></figcaption>
 </div>
 
 TimeGPT is another transformer-based model. The model itself is not new. The significance of TimeGPT stands on its vast training dataset of time series from various domains, allowing it to learn a wide array of temporal patterns. The model is designed to perform zero-shot inference, meaning it can make accurate predictions on unseen data without the need for retraining. 
