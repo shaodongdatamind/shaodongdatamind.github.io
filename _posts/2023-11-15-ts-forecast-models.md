@@ -59,7 +59,7 @@ Note that a multivariate time series is considered as a multi-channel signal. Ea
 Like transformer models in NLP, PatchTST can be trained through both supervised learning and self-supervised learning as well. In the supervised learning, the target output is the forecast period. To do the self-supervised learning, PatchTST masks several randomly selected patches and set to zero, and the model targets to reconstruct the masked patches. 
 
 ## TimeGPT (2023)
-Drawing inspiration from the success of large language models in natural language processing, TimeGPT adapts the pre-training techniques to the time series forecast. It stands out for its ability to handle a wide range of forecasting tasks.
+Drawing inspiration from the success of large language models in natural language processing, TimeGPT adapts the pre-training techniques to the time series forecast. It stands out for its ability to handle a wide range of forecasting tasks. 
 
 <div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/ts_forecast_models/TimeGPT.png" 
@@ -68,6 +68,34 @@ Drawing inspiration from the success of large language models in natural languag
 </div>
 
 TimeGPT is another transformer-based model. The model itself is not new. The significance of TimeGPT stands on its vast training dataset of time series from various domains, allowing it to learn a wide array of temporal patterns. The model is designed to perform zero-shot inference, meaning it can make accurate predictions on unseen data without the need for retraining. 
+
+## Implementations
+With the help of nixtla.neuralforecast, we can easily implement these time series forecast models.  
+This is the minimal example of N-BEATS, N-HiTS, and PatchTST. To view more comprehensive usage examples, e.g. hyperparameter tuning, please check the Nixtla’s repository (https://github.com/Nixtla).
+
+```python
+!pip install neuralforecast
+from neuralforecast.utils import AirPassengersDF
+from neuralforecast import NeuralForecast
+from neuralforecast.models import NBEATS, LSTM, NHITS, PatchTST
+
+Y_df = AirPassengersDF # Defined in neuralforecast.utils
+
+models = [
+    PatchTST(h=horizon, input_size=104, patch_len=24, stride=24, max_steps=100),
+    NHITS(h=horizon, input_size=2 * horizon, max_steps=100), 
+    NBEATS(input_size=2 * horizon, h=horizon, max_steps=100)
+]
+nf = NeuralForecast(models=models, freq='M')
+nf.fit(df=Y_df)
+Y_hat_df = nf.predict()
+```
+
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/ts_forecast_models/neuralforecast_example.png" 
+  alt="neuralforecast_example">
+  <figcaption><em> Figure 5: Minimal examples of N-BEATS, N-HiTS, and PatchTST. </em></figcaption>
+</div>
 
 ## References
 Oreshkin, B. N., Carpov, D., Chapados, N., & Bengio, Y. (2019). N-BEATS: Neural basis expansion analysis for interpretable time series forecasting. arXiv preprint arXiv:1905.10437.
