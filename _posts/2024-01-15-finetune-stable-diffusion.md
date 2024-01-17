@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Simple Steps to Fine-Tune Stable Diffusion for Personalized Image Generation
+title: A Code-Free Approach to Fine-Tuning Stable Diffusion for Personalized Image Generation
 author: Shaodong Wang
 ---
 
