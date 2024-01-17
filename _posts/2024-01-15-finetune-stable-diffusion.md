@@ -31,17 +31,42 @@ while Textual Inversion creates new embeddings related to provided terms. LoRA i
 ### DreamBooth
 <div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/diagram_dreambooth.png" 
-  alt="nbeats">
-  <figcaption><em> Figure 1: Diagram created by Reddit user, use_excalidraw. Source: https://www.reddit.com/r/StableDiffusion/comments/10cgxrx/wellresearched_comparison_of_training_techniques/ . </em></figcaption>
+  alt="dreambooth">
+  <figcaption><em> Figure 1: Diagram of Dreambooth. Created by Reddit user, use_excalidraw. 
+    Source: https://www.reddit.com/r/StableDiffusion/comments/10cgxrx/wellresearched_comparison_of_training_techniques/. </em></figcaption>
 </div>
 
-The LoRA method was originally developed for Large Language Models, but it also works well for stable diffusion models. LoRA does not change the weights in the base model directly. Instead, it adds sparse weight matrices to the base model to form the new dense weights. To make the training fast and compact, LoRA uses matrix decomposition methods. 
+With DreamBooth, an entirely new version of the stable diffusion model is trained, updating all parameters within the model. This process results in a large model checkpoint, typically around 5GB. Unlike Textual Inversion and LoRA, this DreamBooth checkpoint functions as a standalone model capable of independently generating images. 
 
-Basically, a large sparse matrix can be decomposed to two low-dimensional matrices. Instead of updating the entire model with huge matrices, LoRA uses the small matrices (red squares) to represent the added weight matrices of high dimensions. Thus, LoRA only needs very limited computation resources and storage space. Usually the LoRA files are around 200MB. 
+Note that to train DreamBooth for stable diffusion, we need a significant amount of VRAM.  The VRAM requirement depends on various factors like the model size, batch size, and resolution of images being used, but typically we need 16GB or more. In my experiment, I ran out of VRAM on a 15GB T4 GPU. 
+
+### Textual Inversion
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/diagram_textual_inversion.png">
+  <figcaption><em> Figure 2: Diagram of Textual Inversion. Created by Reddit user, use_excalidraw. 
+    Source: https://www.reddit.com/r/StableDiffusion/comments/10cgxrx/wellresearched_comparison_of_training_techniques/. </em></figcaption>
+</div>
+
+Unlike DreamBooth, the Textual Inversion does not modify the base model. 
+Instead, it creates new embeddings for special words. During training, the embeddings are updated while the stable diffusion base model is frozen. 
+Usually, we set the desired subjects to the special words. So, after training, when we call the special words in the text prompt, the new embeddings are invoked and passed to the stable diffusion model, and the stable diffusion model will generate the images that are associated with the desired subjects.
+
+Unlike DreamBooth, the Textual Inversion is very fast because only a few embeddings are trained. The resulting file is very small, usually a few KB. 
+
+### Low-Rank Adaptation (LoRA)
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/diagram_lora.png">
+  <figcaption><em> Figure 3: Diagram of LoRA. Created by Reddit user, use_excalidraw. 
+    Source: https://www.reddit.com/r/StableDiffusion/comments/10cgxrx/wellresearched_comparison_of_training_techniques/. </em></figcaption>
+</div>
+
+The LoRA method was originally developed for Large Language Models but also works well for stable diffusion models. LoRA does not change the weights in the base model directly. Instead, it adds sparse weight matrices to the base model to form the new dense weights. To make the training fast and compact, LoRA uses matrix decomposition methods. 
+
+Basically, a large sparse matrix can be decomposed into two low-dimensional matrices. Instead of updating the entire model with huge matrices, LoRA uses small matrices (red squares) to represent the added weight matrices of high dimensions. Thus, LoRA only needs very limited computation resources and storage space. Usually, the LoRA files are around 200MB. 
 
 ## Hands-on
-There are a lot of tools to train and run stable diffusion models. I highly recommend using Khoya (https://github.com/bmaltais/kohya_ss) 
-to train your personalized model and run it on Automatic1111 web UI (https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
+There are a lot of tools to train and run stable diffusion models. I highly recommend using [Khoya](https://github.com/bmaltais/kohya_ss) (https://github.com/bmaltais/kohya_ss) 
+to train your personalized model and run it on [Automatic1111 web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) (https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
 We can follow the instructions on their GitHub pages to install the package. 
 
 In my experiment, I will use my own photos to fine-tune a stable diffusion 1.5 model. 
@@ -49,17 +74,31 @@ Then, when I include my name within the text prompt, the model is supposed to pr
 
 ### Dataset preparation
 The first step is to collect training images. In my experiment, I collected 20 photos of my face. 
-Typically, 15 photos are good enough. Stable diffusion models require images of 512*512 for training, but the khoya will process the images with different resolutions. 
+Typically, 15 photos are good enough. Stable diffusion models require images of 512*512 for training, but the Khoya will process the images with different resolutions. 
 
-Note that it is *very important* to have your target subject occupy a substantial portion of the image. 
+Note that it is **very important** to have your target subject occupy a substantial portion of the image. 
 For example, in my case, my face should cover at least 50% of the training photos. 
 In the experiment, if the subject, like a face, only occupies a small area of the training photos, 
 the quality of the output from the fine-tuned model will be significantly compromised.
 
+### Create captions
+We need to provide a caption for each image. They must be a text file with the same name as an image containing the caption. We will generate the captions automatically using the captioning tool in the Kohya. 
 
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/Kohya_captioning.png">
+  <figcaption><em> Figure 4: Creating captions on Kohya GUI. </em></figcaption>
+</div>
 
+-	In the Kohya GUI, go to Utilities -> Caption -> BLIP Captioning. Try any other captioning options if you like. 
+-	Set the path to the training images. 
+-	Set the prefix to the caption. It must contain the special word that we want to use in the prompt. In my case, I will set the prefix to “Photo of Shaodong”, where Shaodong is my special word.
+-	Adjust other parameters if you like.
+-	Caption images
 
+Once the captioning is done, each image will have a corresponding caption saved as a .txt file in the same directory. The captions have the same file name as their respective images. 
 
+### Model Training
+In Khoya GUI, the pages of Dreambooth, LoRA, and Textual Inversion look pretty similar. We can simply start the three training techniques by setting the 1) source model, 2) folders, and 3) parameters.
 
 
 
