@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Fine-Tuning Stable Diffusion for Personalized Image Generation
+title: An Easy Way to Fine-Tune Stable Diffusion for Personalized Image Generation
 author: Shaodong Wang
 ---
 
@@ -10,10 +10,9 @@ We're witnessing an AI revolution. The ability of AI models to generate personal
 These AI models can not only generate images but also generate images that are intimately tied to specific objects and styles, 
 such as portraying a person or emulating a distinctive art style.
 
-Consider some scenarios. 1) Imagine you are an anime artist seeking inspiration. 
-You wish to employ image AI to generate images that not only spark creativity but also align with your unique artistic style. 
-2) You are a marketing manager. You want to use AI to generate advertising images for your products. 
-The generated images should be consistent with the company values and the product styles. 
+Consider some scenarios. 
+- 1) Imagine you are an anime artist seeking inspiration. You wish to employ image AI to generate images that not only spark creativity but also align with your unique artistic style. 
+- 2) You are a marketing manager. You want to use AI to generate advertising images for your products. The generated images should be consistent with the company values and the product styles. 
 In both scenarios, the base AI model lacks knowledge of your specific style preferences. 
 Training a personalized image AI model is needed.
 
@@ -100,8 +99,29 @@ Once the captioning is done, each image will have a corresponding caption saved 
 ### Model Training
 In Khoya GUI, the pages of Dreambooth, LoRA, and Textual Inversion look pretty similar. We can simply start the three training techniques by setting the 1) source model, 2) folders, and 3) parameters.
 
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/Kohya_source_model.png">
+  <figcaption><em> Figure 5: Selecting source model on Kohya GUI. </em></figcaption>
+</div>
 
+The source model is the base stable diffusion model that we are going to fine-tune. 
+Here, I selected stable-diffusion-v1.5, but SD 2.1 and SDXL are also available. 
+If you would like to train on a custom model, select the custom in the Model Quick Pick box and set the directory of your custom model. 
+Civitai (https://civitai.com/models) is a good place to find an interesting stable diffusion model. 
 
+For LoRA, my experience suggests that using the base stable-diffusion-v1-5 model from runwayml (which is the default) yields results that are most effectively applicable to other derivative models. This approach seems to offer the best transferability of learned features.
+
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/Kohya_folders.png">
+  <figcaption><em> Figure 5: Setting folders on Kohya GUI. </em></figcaption>
+</div>
+
+In the folder tab, the image folder is the directory of the training images. The output folder is the directory to output the trained model. Optionally, we can save the regularization pictures in the regularization folder. The regularization images are used to maintain the general capabilities of the original model while it is being fine-tuned for a specific task. These images serve as a reference point to prevent the model from deviating too far from its original functionality. In my experiment, I didn’t see any improvement when I set the regularization folder. 
+
+<div style="text-align: center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/sd_finetune/Kohya_parameters_dreambooth.png">
+  <figcaption><em> Figure 5: Setting Dreambooth parameters on Kohya GUI. </em></figcaption>
+</div>
 
 
 
