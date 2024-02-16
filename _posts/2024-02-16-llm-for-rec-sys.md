@@ -29,13 +29,11 @@ Large Language Models (LLMs) have potentials for addressing the challenges in th
 
 ### Prompting LLMs for Recommender Systems
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/llm4recsys/prompting.png" 
   alt="Figure 1">
   <figcaption><em>Figure 1: Prompting LLMs for recommender systems. Image source: Fan, W., Zhao, Z., Li, J., Liu, Y., Mei, X., Wang, Y., ... & Li, Q. (2023). Recommender systems in the era of large language models (llms). arXiv preprint arXiv:2307.02046.</em></figcaption>
-</figure>
-
-Image source: Fan, W., Zhao, Z., Li, J., Liu, Y., Mei, X., Wang, Y., ... & Li, Q. (2023). Recommender systems in the era of large language models (llms). arXiv preprint arXiv:2307.02046.
+</div>
 
 Prompting helps Large Language Models (LLMs) turn various recommendation tasks into language creation tasks. This matches what they were originally trained to do. The following are several ways to construct recommender systems by prompting LLMs. 
 
@@ -61,23 +59,23 @@ In some scenarios, we might already have a working recommendation system. Our go
 ### Pre-training Transformers for Recommender Systems
 The authors of \[1\] call this method pre-training LLMs for recommender systems. However, I believe pre-training transformers is a more appropriate name. This method regards the user ids, item ids, or user behaviors as words in the natural language. The user ids, item ids, or user behaviors are indexed as unique tokens and then are used to train a transformer model. The representative works include PTUM \[6\], P5 \[7\] and TIGER \[8\]. The following Figure explains how these models treat user ids, item ids, and user behaviors.
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/llm4recsys/ptum.png" 
   alt="Figure 2">
   <figcaption><em>Figure 2: PTUM treats a sequence of user behaviors as a sequence of unique tokens. The model is trained by two self-supervised tasks, Masked Behavior Prediction and Next K Behaviors Prediction. </em></figcaption>
-</figure>
+</div>
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/llm4recsys/p5.png" 
   alt="Figure 3">
   <figcaption><em>Figure 3: P5 treats user & item ids as unique tokens, and pretrains on an encoder-decoder Transformer model.  </em></figcaption>
-</figure>
+</div>
 
-<figure align="center">
+<div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/llm4recsys/TIGER.png" 
   alt="Figure 4">
   <figcaption><em>Figure 4: Transformer Index for GEnerative Recommenders (TIGER) uses semantic ID to index the item ids. Similar items have the same ID on the first/second level. The TIGER also trains on an encoder-decoder transformer model. </em></figcaption>
-</figure>
+</div>
 
 ### References
 
