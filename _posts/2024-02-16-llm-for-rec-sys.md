@@ -57,7 +57,10 @@ In some scenarios, we might already have a working recommendation system. Our go
 
 
 ### Pre-training Transformers for Recommender Systems
-The authors of \[1\] call this method pre-training LLMs for recommender systems. However, I believe pre-training transformers is a more appropriate name. This method regards the user ids, item ids, or user behaviors as words in the natural language. The user ids, item ids, or user behaviors are indexed as unique tokens and then are used to train a transformer model. The representative works include PTUM \[6\], P5 \[7\] and TIGER \[8\]. The following Figure explains how these models treat user ids, item ids, and user behaviors.
+The authors of \[1\] call this method pre-training LLMs for recommender systems. However, I believe pre-training transformers is a more appropriate name. This method regards the user ids, item ids, or user behaviors as words in the natural language. The user ids, item ids, or user behaviors are indexed as unique tokens and then are used to train a transformer model. The representative works include PTUM \[6\], P5 \[7\] and TIGER \[8\]. The following Figure explains how these models works.
+- PTUM treats a sequence of user behaviors as a sequence of unique tokens. The model is trained by two self-supervised tasks, Masked Behavior Prediction and Next K Behaviors Prediction.
+- P5 treats user & item ids as unique tokens, and pretrains on an encoder-decoder Transformer model.
+- Transformer Index for GEnerative Recommenders (TIGER) uses semantic ID to index the item ids. Similar items have the same ID on the first/second level. The TIGER also trains on an encoder-decoder transformer model.
 
 <div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/llm4recsys/ptum.png" 
