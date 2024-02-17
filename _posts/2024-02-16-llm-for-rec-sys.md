@@ -37,14 +37,15 @@ Large Language Models (LLMs) have potentials for addressing the challenges in th
 
 Prompting helps Large Language Models (LLMs) turn various recommendation tasks into language creation tasks. This matches what they were originally trained to do. The following are several ways to construct recommender systems by prompting LLMs. 
 
-1.	Top-K Recommendation \[2\]: By analyzing a user's watch history, LLMs can recommend a list of top movies that the user might be interested in. The LLM leverages its understanding of movie genres and actor preferences to generate a list of top five candidate movies.
+1.	Top-K Recommendation \[2\]: By analyzing a user's watch history, LLMs can recommend a list of top items that the user might be interested in. The LLM leverages its understanding of item features to generate a list of top five candidate items.
 {:start="1"}
-2.	Rating Prediction \[3\]: For rating prediction, the LLM assesses a user's movie rating history to predict how the user would rate a new movie. The prediction is based on similarities between the new movie and those in the user's rating history, leading to a likely rating score.
+2.	Rating Prediction \[3\]: For rating prediction, the LLM assesses a user's item rating history to predict how the user would rate a new item. The prediction is based on similarities between the new item and those in the user's rating history, leading to a likely rating score.
 {:start="2"}
 3.	Conversational Recommendation \[4\]: In conversational recommendation, LLMs interact with users through prompts to understand their preferences and dislikes. This interaction helps in recommending personalized options based on the user's responses.
 {:start="3"}
-4.	Explanation Generation \[2\]: For explanation generation, the LLM provides reasons why a recommended movie matches the user's previous viewing habits. The explanation involves drawing parallels between features of the new movie and those of movies the user has recently watched.
+4.	Explanation Generation \[2\]: For explanation generation, the LLM provides reasons why a recommended item matches the user's previous viewing habits. The explanation involves drawing parallels between features of the new item and those of items the user has recently watched/used/purchased.
 {:start="4"}
+5. In addition to the above 4, it's also a good idea to generate personalized product descriptions for all possible products. It does not have to be for recommended items. The generated description can fit the user's living habits better for an enhanced user experience. 
 
 For all the above-listed prompting methods, if the recommended items are new or not known by the base LLM, we can either finetune the base LLM on the documents of the items or add more item information to the prompt through retrieval augmented generation (RAG). 
 
