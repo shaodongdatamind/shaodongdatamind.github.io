@@ -9,9 +9,9 @@ In this blog post, we're diving into some fascinating research that forms the ba
 
 Here's what we'll cover:
 
--	DiT: A way to make diffusion models (a type of AI that generates images) work efficiently with Transformers (a type of AI that learns from data sequences).
--	ViViT: An approach to understanding videos using the principles of Vision Transformer, which usually works with still images.
--	Patch n Pack: Introducing NaViT, a Vision Transformer designed to handle images of any size or shape.
+-	DiT: Scalable Diffusion Models with Transformers.
+-	ViViT: A video vision transformer.
+-	Patch n Pack: NaViT, a Vision Transformer for any Aspect Ratio and Resolution.
 
 ## DiT: Scalable Diffusion Models with Transformers
 Diffusion models are a class of generative models that learn to generate data by reversing a diffusion process. This process gradually adds noise to the data until it reaches a pure noise distribution. Then, the model learns to reverse this process, starting from noise and gradually removing it to produce a sample from the target distribution. Diffusion models have been particularly successful in generating high-quality images by conditioning the reverse diffusion process on text or other forms of guidance.
