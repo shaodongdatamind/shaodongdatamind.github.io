@@ -80,10 +80,10 @@ NaViT is a technique that originated from ViT, but it presents a significant adv
 Here’s an example of example packing in NLP:
 
 -	In a traditional setup, we would pad each sequence to the length of the longest sequence in the batch. Without example packing, we have something like this. 
-    -- Sequence 1: The cat sat on the chair [PAD] [PAD]. (8 tokens)
-    -- Sequence 2: A quick fox jumps over the lazy dog. (8 tokens)
+    - Sequence 1: The cat sat on the chair [PAD] [PAD]. (8 tokens)
+    - Sequence 2: A quick fox jumps over the lazy dog. (8 tokens)
 -	With example packing (or sequence packing), instead of padding each sequence individually, we concatenate the sequences together into a single ‘pack’. The packed sequence would look like this.
-    -- Combined sequence: The cat sat on the chair A quick fox jumps over the lazy dog. (14 tokens)
+    - Combined sequence: The cat sat on the chair A quick fox jumps over the lazy dog. (14 tokens)
 
 Borrowing the packing idea from NLP, NaViT treats images as sequences of patches, and packs them together. Images of different resolutions can be divided into patches of the same size and packed into a single sequence. This is the core idea in NaViT. 
 
