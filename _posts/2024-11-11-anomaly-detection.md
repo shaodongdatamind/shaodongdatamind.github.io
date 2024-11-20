@@ -102,6 +102,7 @@ DeepSAD does not rely on a specific architecture, as long as the network can map
   <figcaption><em>DeepSAD training process. Source: https://arxiv.org/abs/1906.02694 [4]</em></figcaption>
 </div>
 
+
 ## References
 \[1\] Han, S., Hu, X., Huang, H., Jiang, M., & Zhao, Y. (2022). Adbench: Anomaly detection benchmark. Advances in Neural Information Processing Systems, 35, 32142-32159. https://arxiv.org/abs/2206.09426 
 
