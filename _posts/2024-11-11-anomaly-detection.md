@@ -12,7 +12,7 @@ According to the availability of the data, we divide the anomaly detection (AD) 
 - Supervised AD trains a model on a fully annotated dataset. We can regard it as a classification model.
 - Semi-supervised AD trains a model on a *partially* annotated dataset to identify anomaly samples. 
 
-In practice, it’s common to have a large amount of unlabeled data and only a small set of labeled data. This happens for several reasons. For instance, labeled data is often much more expensive and harder to access than unlabeled data. Additionally, datasets can be imbalanced, with only a limited number of anomaly samples. In such cases, *semi-supervised* AD becomes an invaluable tool.
+In practice, it's common to have a large amount of unlabeled data and only a small set of labeled data. This happens for several reasons. For instance, labeled data is often much more expensive and harder to access than unlabeled data. Additionally, datasets can be imbalanced, with only a limited number of anomaly samples. In such cases, *semi-supervised* AD becomes an invaluable tool.
 
 It's also worth noting that AD methods are not restricted to anomaly detection problems. They can be effectively applied to imbalanced classification tasks as well, where minorities are the anomalies. 
 
@@ -44,16 +44,16 @@ The XGBOD (Extreme Gradient Boosting Outlier Detection) framework combines unsup
 
 The algorithm operates in three main phases:
 
-*Unsupervised Representation Learning.* Given a dataset X of n points with d features, apply k unsupervised outlier detection methods to produce transformed outlier scores (TOS).
+**Unsupervised Representation Learning.** Given a dataset X of n points with d features, apply k unsupervised outlier detection methods to produce transformed outlier scores (TOS).
 
-*Transformed Outlier Scores (TOS) Selection.* Prune the TOS to retain only the most useful representations. We want to balance diversity and accuracy by using a discounted accuracy function: 
+**Transformed Outlier Scores (TOS) Selection.** Prune the TOS to retain only the most useful representations. We want to balance diversity and accuracy by using a discounted accuracy function: 
 
 $$\Psi(\Phi_i) = \text{Accuracy}(\Phi_i) \big/ \sum_{j \in S} \rho(\Phi_i, \Phi_j)$$
 
 where $$S$$ is the selected set of TOS, $$\rho(\Phi_i, \Phi_j)$$ measures correlation between TOS $$\Phi_i$$ and $$\Phi_j.$$ 
 The diversity is encouraged by forcing the selected TOS to be less correlated with each other. 
 
-*Supervised Learning with XGBoost.* Train an XGBoost classifier on the refined feature space that includes both the selected TOS and the original feature set X. Do further feature selection using the feature importance mechanism if needed.
+**Supervised Learning with XGBoost.** Train an XGBoost classifier on the refined feature space that includes both the selected TOS and the original feature set X. Do further feature selection using the feature importance mechanism if needed.
 
 ## PReNet
 PReNet (Pairwise Relation prediction Network) is another anomaly detection algorithm that uses a small labeled anomaly set and a large unlabeled dataset. It differs from other algorithms that it takes two samples as inputs, instead of one, and then outputs their relationships.
@@ -65,12 +65,12 @@ The samples can be normal or anomaly samples, and thus we have three pairwise re
   <figcaption><em>PReNet (Pairwise Relation prediction Network) framework. Source: https://arxiv.org/abs/1910.13601 [3]</em></figcaption>
 </div>
 
-*Model architecture.* Since PReNet is a pair-wised model, its architecture inherently includes a siamese network to extract features from both samples, and a scoring network that concatenates extracted features of the paired samples and computes anomaly scores for the sample pair.
+**Model architecture.** Since PReNet is a pair-wised model, its architecture inherently includes a siamese network to extract features from both samples, and a scoring network that concatenates extracted features of the paired samples and computes anomaly scores for the sample pair.
 
-*Model training.* After generating sample pairs, its training is like a regular supervised regression training using gradient descent.
+**Model training.** After generating sample pairs, its training is like a regular supervised regression training using gradient descent.
 
-*Inference.* Since it's a pairwise model, when we want to do inference on a new sample, we need to use the samples in the training data to make it a pair. To make the prediction more robust, we take E normal samples and E anomaly samples, instead of 1 sample from the training data to do an ensemble. Specifically,
-$$\text{anomaly_score}(x)=\frac{1}{E}(\sum_{i=1}^{E}\phi(a_i, x)+\sum_{j=1}^{E}\phi(u_j, x))$$ 
+**Inference.** Since it's a pairwise model, when we want to do inference on a new sample, we need to use the samples in the training data to make it a pair. To make the prediction more robust, we take E normal samples and E anomaly samples, instead of 1 sample from the training data to do an ensemble. Specifically,
+$$\text{anomaly\_score}(x)=\frac{1}{E}(\sum_{i=1}^{E}\phi(a_i, x)+\sum_{j=1}^{E}\phi(u_j, x))$$ 
 where $$a_i$$ and $$u_j$$ are the known anomalies and normal samples.
 
 ## DeepSAD
@@ -80,7 +80,7 @@ As a semi-supervised anomaly detection model, DeepSAD also leverages both labele
 
 DeepSAD does not rely on a specific architecture, as long as the network can map inputs to a latent space. Instead, its uniqueness lies in its objective function and training process. 
 
-*Objective function.* The objective function includes three terms.
+**Objective function.** The objective function includes three terms.
 
 <div style="text-align: center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/anomaly_detection/DeepSAD_objective_func.png">
@@ -92,7 +92,7 @@ DeepSAD does not rely on a specific architecture, as long as the network can map
 
 - The third term is for regularization.
 
-*Training Process.* We can train DeepSAD in three phases.
+**Training Process.** We can train DeepSAD in three phases.
 - Pretrain the network as an autoencoder using reconstruction loss to learn robust initial features. The autoencoder pre-training is not necessary but it ensures stable initialization.
 - Initialize the hypersphere center c as the mean of the latent representations of normal data, by feeding the known normal data into the pre-trained autoencoder.
 - Use stochastic gradient descent to optimize the objective
@@ -101,6 +101,7 @@ DeepSAD does not rely on a specific architecture, as long as the network can map
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/anomaly_detection/DeepSAD_training_process.png">
   <figcaption><em>DeepSAD training process. Source: https://arxiv.org/abs/1906.02694 [4]</em></figcaption>
 </div>
+
 
 ## References
 \[1\] Han, S., Hu, X., Huang, H., Jiang, M., & Zhao, Y. (2022). Adbench: Anomaly detection benchmark. Advances in Neural Information Processing Systems, 35, 32142-32159. https://arxiv.org/abs/2206.09426 
