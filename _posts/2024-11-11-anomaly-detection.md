@@ -70,7 +70,7 @@ The samples can be normal or anomaly samples, and thus we have three pairwise re
 **Model training.** After generating sample pairs, its training is like a regular supervised regression training using gradient descent.
 
 **Inference.** Since it's a pairwise model, when we want to do inference on a new sample, we need to use the samples in the training data to make it a pair. To make the prediction more robust, we take E normal samples and E anomaly samples, instead of 1 sample from the training data to do an ensemble. Specifically,
-$$\text{anomaly\_score}(x)=\frac{1}{E}(\sum_{i=1}^{E}\phi(a_i, x)+\sum_{j=1}^{E}\phi(u_j, x))$$ 
+$$\text{anomaly_score}(x)=\frac{1}{E}(\sum_{i=1}^{E}\phi(a_i, x)+\sum_{j=1}^{E}\phi(u_j, x))$$ 
 where $$a_i$$ and $$u_j$$ are the known anomalies and normal samples.
 
 ## DeepSAD
