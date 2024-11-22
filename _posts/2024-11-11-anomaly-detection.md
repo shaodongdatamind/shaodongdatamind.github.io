@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Anomaly Detection
+title: Semi-Supervised Anomaly Detection
 author: Shaodong Wang
 ---
 
@@ -12,7 +12,7 @@ According to the availability of the data, we divide the anomaly detection (AD) 
 - Supervised AD trains a model on a fully annotated dataset. We can regard it as a classification model.
 - Semi-supervised AD trains a model on a *partially* annotated dataset to identify anomaly samples. 
 
-In practice, it's common to have a large amount of unlabeled data and only a small set of labeled data. This happens for several reasons. For instance, labeled data is often much more expensive and harder to access than unlabeled data. Additionally, datasets can be imbalanced, with only a limited number of anomaly samples. In such cases, *semi-supervised* AD becomes an invaluable tool.
+In practice, it's common to have a large amount of unlabeled data and only a small set of labeled data. This happens for several reasons. For instance, labeled data is often much more expensive and harder to access than unlabeled data. Additionally, datasets can be imbalanced, with only a limited number of anomaly samples. In such cases, **semi-supervised** AD becomes an invaluable tool.
 
 It's also worth noting that AD methods are not restricted to anomaly detection problems. They can be effectively applied to imbalanced classification tasks as well, where minorities are the anomalies. 
 
