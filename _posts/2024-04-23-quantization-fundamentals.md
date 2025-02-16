@@ -45,6 +45,44 @@ where
 
 This process is reversable, so that we can approximately convert back from the quantized integer value to the original value. 
 
+## Quantization for inference
+Quantized weights are not used directly for inference. Instead, they are dequantized back to floating-point values during computation. During inference, the quantized model work as follows:
+- **Load quantized weights.** For example, quantized weights are stored as INT8.
+- **Dequantize on the fly.** During matrix multiplication, weights are dequantized to FP32 using the precomputed `scale` and `zero-point`.
+- **Compute with full precision.** The actual inference (matrix multiplies) uses dequantized FP32 values, ensuring numerical stability.
+
+```
+dequantized_W = (quantized_W_int8 - zero_point) * scale
+Y = torch.matmul(X, dequantized_W)
+```
+
+## Quantization for training
+Quantization Aware Training (QAT) is a technique used to mitigate the negative effects that can arise from quantizing a model, such as loss of accuracy. QAT simulates the effects of quantization during the training process. It trains the model in a way that controls how the model performs once it is quantized. 
+-	During forward pass (inference), we use the quantized version of model weights (+ dequantization steps) to make predictions. 
+-	During back propagation (updating model weights), we update original, unquantized version of model weights.
+
+### Simplified QAT training loop  
+```
+float_W = torch.randn(4096, 4096, dtype=torch.float32, requires_grad=True)  
+optimizer = torch.optim.Adam([float_W], lr=1e-4)  
+
+for _ in range(steps):  
+    # Forward: Quantize -> Dequantize  
+    quantized_W = torch.round(float_W / scale)  
+    dequantized_W = (quantized_W - zero_point) * scale  
+
+    # Compute loss (e.g., cross-entropy)  
+    loss = (x @ dequantized_W - y).square().mean()  
+
+    # Backward (STE approximates d(loss)/d(float_W) ≈ d(loss)/d(dequantized_W) * 1/scale)  
+    loss.backward()  
+    optimizer.step()  
+    optimizer.zero_grad()  
+
+    # Optional: Recalibrate scale/zp every N steps  
+    if step % 1000 == 0:  
+        scale, zero_point = calibrate(float_W)
+```
 
 ## Quantization toolkit library from HuggingFace
 Load model:
@@ -65,11 +103,6 @@ input_text = "Hello, my name is "
 input_ids = tokenizer(input_text, return_tensors="pt").input_ids
 outputs = model.generate(input_ids)
 ```
-
-## Quantization Aware Training
-Quantization Aware Training (QAT) is a technique used to mitigate the negative effects that can arise from quantizing a model, such as loss of accuracy. QAT simulates the effects of quantization during the training process. It trains the model in a way that controls how the model performs once it is quantized. 
--	During forward pass (inference), we use the quantized version of model weights to make predictions. 
--	During back propagation (updating model weights), we update original, unquantized version of model weights.
 
 ## More Recent Quantization Methods
 -	(only 8-bit) Dettmers, T., Lewis, M., Belkada, Y., & Zettlemoyer, L. (2022). Gpt3. int8 (): 8-bit matrix multiplication for transformers at scale. Advances in Neural Information Processing Systems, 35, 30318-30332.QLoRA
