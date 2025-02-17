@@ -104,6 +104,13 @@ input_ids = tokenizer(input_text, return_tensors="pt").input_ids
 outputs = model.generate(input_ids)
 ```
 
+## Does Quantization Speeds Up Inference
+Despite the computational overhead of dequantization, quantization often yields significant inference speed improvements through two key mechanisms. 
+
+First, **memory bandwidth** savings drastically reduce data transfer times: 4-bit weights occupy just 1/8th the memory of 32-bit floats, enabling faster loading from VRAM to compute units. For instance, a 7B model’s weights shrink from 28 GB (float32) to 3.5 GB (int4), cutting memory traffic by ~8×. 
+
+Second, **optimized integer math** leverages modern hardware advancements: dedicated low-precision accelerators (e.g., NVIDIA’s INT8 Tensor Cores) execute matrix operations up to 4× faster than float32 equivalents, while fused kernels like Marlin integrate dequantization directly into compute workflows, minimizing overhead.
+
 ## More Recent Quantization Methods
 -	(only 8-bit) Dettmers, T., Lewis, M., Belkada, Y., & Zettlemoyer, L. (2022). Gpt3. int8 (): 8-bit matrix multiplication for transformers at scale. Advances in Neural Information Processing Systems, 35, 30318-30332.QLoRA
 -	(only 4-bit) Dettmers, T., Pagnoni, A., Holtzman, A., & Zettlemoyer, L. (2024). Qlora: Efficient finetuning of quantized llms. Advances in Neural Information Processing Systems, 36.
